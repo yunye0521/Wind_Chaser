@@ -1,0 +1,153 @@
+.leaderboard-page {
+  min-height: 100vh;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.filter-btn {
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+  padding: 12rpx 24rpx;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+}
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+  padding: 0 40rpx;
+}
+
+.podium-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.podium-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.podium-avatar.gold {
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 40rpx;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+}
+
+.podium-name {
+  font-size: 24rpx;
+  margin-bottom: 4rpx;
+}
+
+.podium-rate {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #00ff88;
+  margin-bottom: 8rpx;
+}
+
+.podium-bar {
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+  padding: 16rpx 0;
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.bar-1 { background: linear-gradient(135deg, #ffd700, #ff8c00); height: 120rpx; }
+.bar-2 { background: linear-gradient(135deg, #c0c0c0, #808080); height: 90rpx; }
+.bar-3 { background: linear-gradient(135deg, #cd7f32, #8b4513); height: 60rpx; }
+
+.list {
+  height: 50vh;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12rpx;
+  margin-bottom: 12rpx;
+  gap: 16rpx;
+}
+
+.rank {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.5);
+  width: 50rpx;
+  text-align: center;
+}
+
+.item-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 28rpx;
+  display: block;
+}
+
+.item-level {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.item-rate {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #00ff88;
+}
+
+.item-detail {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.empty {
+  text-align: center;
+  padding: 80rpx;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 28rpx;
+}

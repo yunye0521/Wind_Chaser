@@ -1,0 +1,45 @@
+<view class="leaderboard-page">
+  <view class="header">
+    <text class="title">🏆 英雄榜</text>
+    <picker mode="selector" range="{{levelNames}}" value="{{filterIndex}}" bindchange="onFilterChange">
+      <view class="filter-btn">等级: {{levelNames[filterIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="podium" wx:if="{{top3.length > 0}}">
+    <view class="podium-item second" wx:if="{{top3.length >= 2}}">
+      <view class="podium-avatar">{{top3[1].name[0]}}</view>
+      <text class="podium-name">{{top3[1].name}}</text>
+      <text class="podium-rate">{{top3[1].rate}}%</text>
+      <view class="podium-bar bar-2">2</view>
+    </view>
+    <view class="podium-item first" wx:if="{{top3.length >= 1}}">
+      <view class="podium-avatar gold">{{top3[0].name[0]}}</view>
+      <text class="podium-name">{{top3[0].name}}</text>
+      <text class="podium-rate">{{top3[0].rate}}%</text>
+      <view class="podium-bar bar-1">1</view>
+    </view>
+    <view class="podium-item third" wx:if="{{top3.length >= 3}}">
+      <view class="podium-avatar">{{top3[2].name[0]}}</view>
+      <text class="podium-name">{{top3[2].name}}</text>
+      <text class="podium-rate">{{top3[2].rate}}%</text>
+      <view class="podium-bar bar-3">3</view>
+    </view>
+  </view>
+
+  <scroll-view class="list" scroll-y>
+    <view class="list-item" wx:for="{{records}}" wx:key="id">
+      <text class="rank">{{index + 4}}</text>
+      <view class="item-avatar">{{item.name[0]}}</view>
+      <view class="item-info">
+        <text class="item-name">{{item.name}}</text>
+        <text class="item-level">{{item.gameLevelName}}</text>
+      </view>
+      <text class="item-rate">{{item.rate}}%</text>
+      <text class="item-detail">{{item.hit}}中/{{item.hit + item.miss}}球</text>
+    </view>
+    <view class="empty" wx:if="{{records.length === 0}}">
+      <text>暂无记录</text>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,16 @@
+[Unit]
+Description=MiniApp AI Inference Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/www/wwwroot/slkx.store_1998/karate-miniapp/server
+ExecStart=/usr/bin/python3 /www/wwwroot/slkx.store_1998/karate-miniapp/server/miniapp_ai_server.py
+Restart=on-failure
+RestartSec=5
+Environment=MINIAPP_AI_HOST=127.0.0.1
+Environment=MINIAPP_AI_PORT=8789
+
+[Install]
+WantedBy=multi-user.target

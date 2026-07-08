@@ -1,0 +1,45 @@
+<view class="lobby-page">
+  <view class="header glass-panel">
+    <view class="user-info">
+      <view class="avatar">{{userName ? userName[0] : '🥋'}}</view>
+      <view class="info">
+        <text class="name">{{userName || '游客'}}</text>
+        <text class="level">{{userLevelName || '10级 白带'}}</text>
+      </view>
+    </view>
+    <button class="logout-btn" bindtap="doLogout">退出</button>
+  </view>
+
+  <view class="settings glass-panel">
+    <text class="section-title">游戏设置</text>
+
+    <view class="setting-item">
+      <text class="setting-label">难度等级</text>
+      <picker mode="selector" range="{{difficultyNames}}" value="{{difficultyIndex}}" bindchange="onDifficultyChange">
+        <view class="setting-value">{{difficultyNames[difficultyIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="setting-item">
+      <text class="setting-label">攻击目标</text>
+      <picker mode="selector" range="{{targetTypeNames}}" value="{{targetTypeIndex}}" bindchange="onTargetTypeChange">
+        <view class="setting-value">{{targetTypeNames[targetTypeIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="setting-item">
+      <text class="setting-label">出现位置</text>
+      <picker mode="selector" range="{{sideNames}}" value="{{sideIndex}}" bindchange="onSideChange">
+        <view class="setting-value">{{sideNames[sideIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="primary-btn start-btn" bindtap="startGame">🥊 开始挑战</button>
+    <view class="secondary-actions">
+      <button class="secondary-btn" bindtap="goProfile">👤 我的</button>
+      <button class="secondary-btn" bindtap="goLeaderboard">🏆 排行榜</button>
+    </view>
+  </view>
+</view>

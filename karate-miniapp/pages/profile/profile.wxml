@@ -1,0 +1,51 @@
+<view class="profile-page">
+  <view class="profile-header glass-panel">
+    <view class="profile-avatar">{{userName ? userName[0] : '🥋'}}</view>
+    <view class="profile-title">
+      <text class="profile-name">{{userName || '游客'}}</text>
+      <text class="profile-level">{{userLevelName || '10级 白带'}}</text>
+    </view>
+  </view>
+
+  <view class="stats-grid">
+    <view class="stat-card glass-panel">
+      <text class="stat-value">{{totalGames}}</text>
+      <text class="stat-label">总局数</text>
+    </view>
+    <view class="stat-card glass-panel">
+      <text class="stat-value">{{bestRate}}%</text>
+      <text class="stat-label">最好成功率</text>
+    </view>
+    <view class="stat-card glass-panel">
+      <text class="stat-value">{{totalHit}}</text>
+      <text class="stat-label">总击中</text>
+    </view>
+    <view class="stat-card glass-panel">
+      <text class="stat-value">{{totalMiss}}</text>
+      <text class="stat-label">总错过</text>
+    </view>
+  </view>
+
+  <view class="section glass-panel">
+    <text class="section-title">最近记录</text>
+    <scroll-view class="history-list" scroll-y>
+      <view class="history-item" wx:for="{{history}}" wx:key="id">
+        <view class="history-info">
+          <text class="history-level">{{item.gameLevelName}}</text>
+          <text class="history-date">{{item.dateStr}}</text>
+        </view>
+        <view class="history-stats">
+          <text class="history-rate">{{item.rate}}%</text>
+          <text class="history-detail">{{item.hit}}中/{{item.hit + item.miss}}球</text>
+        </view>
+      </view>
+      <view class="empty" wx:if="{{history.length === 0}}">
+        <text>暂无游戏记录</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="bottom-actions">
+    <button class="secondary-btn" bindtap="goBack">返回</button>
+  </view>
+</view>

@@ -1,0 +1,268 @@
+.game-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.game-camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.game-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 16rpx;
+  padding: 16rpx 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.stat-value.hit {
+  color: #00ff88;
+}
+
+.stat-value.miss {
+  color: #ff4466;
+}
+
+.stat-value.rate {
+  color: #00d2ff;
+}
+
+.game-btns {
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  z-index: 3;
+}
+
+.game-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: none;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.game-btn::after {
+  border: none;
+}
+
+.pause-btn {
+  background: rgba(0, 210, 255, 0.8);
+  color: #fff;
+}
+
+.end-btn {
+  background: rgba(255, 68, 102, 0.8);
+  color: #fff;
+}
+
+.body-warning {
+  position: absolute;
+  bottom: 200rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 165, 0, 0.9);
+  color: #fff;
+  padding: 16rpx 32rpx;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  white-space: nowrap;
+}
+
+.countdown-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.countdown-text {
+  font-size: 120rpx;
+  font-weight: bold;
+  color: #00d2ff;
+  text-shadow: 0 0 40rpx rgba(0, 210, 255, 0.5);
+}
+
+.pose-hint {
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 20rpx;
+}
+
+.check-status {
+  font-size: 28rpx;
+  color: #00d2ff;
+  margin-top: 20rpx;
+}
+
+.skip-btn {
+  margin-top: 40rpx;
+  font-size: 26rpx;
+  padding: 16rpx 32rpx;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.spinner {
+  width: 80rpx;
+  height: 80rpx;
+  border: 6rpx solid rgba(255, 255, 255, 0.2);
+  border-top-color: #00d2ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.result-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.result-panel {
+  width: 85%;
+  text-align: center;
+}
+
+.result-title {
+  font-size: 44rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.result-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.big-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.big-stat-value {
+  font-size: 80rpx;
+  font-weight: bold;
+  color: #00ff88;
+}
+
+.big-stat-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.detail-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  text-align: left;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.result-msg {
+  font-size: 30rpx;
+  color: #ffd700;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+.result-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.result-actions .primary-btn,
+.result-actions .secondary-btn {
+  flex: 1;
+  font-size: 28rpx;
+  padding: 24rpx;
+}

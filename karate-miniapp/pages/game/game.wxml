@@ -1,0 +1,83 @@
+<view class="game-page">
+  <camera
+    wx:if="{{showCamera}}"
+    device-position="front"
+    flash="off"
+    class="game-camera"
+    resolution="high"
+    frame-size="medium"
+    bindinitdone="onCameraReady"
+    binderror="onCameraError"
+  />
+
+  <canvas
+    type="2d"
+    id="gameCanvas"
+    class="game-canvas"
+    disable-scroll="{{true}}"
+  />
+
+  <view class="game-ui" wx:if="{{gameRunning}}">
+    <view class="status-bar">
+      <view class="stat">
+        <text class="stat-label">剩余</text>
+        <text class="stat-value">{{remain}}</text>
+      </view>
+      <view class="stat">
+        <text class="stat-label">击中</text>
+        <text class="stat-value hit">{{hit}}</text>
+      </view>
+      <view class="stat">
+        <text class="stat-label">错过</text>
+        <text class="stat-value miss">{{miss}}</text>
+      </view>
+      <view class="stat">
+        <text class="stat-label">成功率</text>
+        <text class="stat-value rate">{{rate}}%</text>
+      </view>
+    </view>
+
+    <view class="game-btns">
+      <button class="game-btn pause-btn" bindtap="togglePause">{{isPaused ? '继续' : '暂停'}}</button>
+      <button class="game-btn end-btn" bindtap="endGame">结束</button>
+    </view>
+
+    <view class="body-warning" wx:if="{{showBodyWarning}}">
+      ⚠️ 请后退一点，让我看到你的全身！
+    </view>
+  </view>
+
+  <view class="countdown-overlay" wx:if="{{showCountdown}}">
+    <text class="countdown-text">{{countdownText}}</text>
+    <text class="pose-hint">请摆出"大"字型</text>
+    <text class="check-status">{{checkStatus}}</text>
+    <button class="secondary-btn skip-btn" bindtap="skipPrecheck">跳过检测开始</button>
+  </view>
+
+  <view class="loading-overlay" wx:if="{{isLoading}}">
+    <view class="spinner"></view>
+    <text>正在准备游戏...</text>
+  </view>
+
+  <view class="result-overlay" wx:if="{{showResult}}">
+    <view class="result-panel glass-panel">
+      <text class="result-title">🎉 挑战完成!</text>
+      <view class="result-stats">
+        <view class="big-stat">
+          <text class="big-stat-value">{{resultRate}}%</text>
+          <text class="big-stat-label">成功率</text>
+        </view>
+        <view class="detail-stats">
+          <text>等级: {{resultLevel}}</text>
+          <text>击中: {{hit}} | 错过: {{miss}}</text>
+          <text>拳: {{handHit}} | 脚: {{footHit}}</text>
+        </view>
+      </view>
+      <text class="result-msg">{{resultMsg}}</text>
+      <view class="result-actions">
+        <button class="primary-btn" bindtap="restartGame">再来一局</button>
+        <button class="secondary-btn" bindtap="goHome">返回大厅</button>
+      </view>
+    </view>
+  </view>
+</view>

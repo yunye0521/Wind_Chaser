@@ -1,0 +1,61 @@
+<view class="login-page">
+  <camera
+    wx:if="{{showCamera}}"
+    device-position="front"
+    flash="off"
+    class="camera"
+    resolution="medium"
+    frame-size="medium"
+    binderror="onCameraError"
+    bindinitdone="onCameraReady"
+  />
+
+  <view class="overlay">
+    <view class="title-section">
+      <text class="title">🥋 体感空手道</text>
+      <text class="subtitle">全身体感互动训练</text>
+    </view>
+
+    <view class="scan-area" wx:if="{{showCamera && !recognized}}">
+      <view class="scan-line"></view>
+      <text class="scan-text">{{scanStatus}}</text>
+    </view>
+
+    <view class="welcome-panel glass-panel" wx:if="{{recognized}}">
+      <text class="welcome-title">欢迎回来, {{matchedUser.name}}!</text>
+      <text class="welcome-level">当前等级: {{matchedUser.levelName}}</text>
+      <button class="primary-btn enter-btn" bindtap="enterLobby">进入游戏大厅</button>
+    </view>
+
+    <view class="possible-panel glass-panel" wx:if="{{possibleMatch}}">
+      <text class="possible-title">可能是已注册用户</text>
+      <text class="possible-text">检测到相似人脸: {{possibleMatch.name}}</text>
+      <view class="possible-actions">
+        <button class="primary-btn" bindtap="confirmPossible">确认登录</button>
+        <button class="secondary-btn" bindtap="retryFace">重新识别</button>
+      </view>
+    </view>
+
+    <view class="register-panel glass-panel" wx:if="{{showRegister}}">
+      <text class="register-title">👋 初次见面！</text>
+      <text class="register-desc">未能识别到已注册用户，请完善信息：</text>
+      <input
+        class="name-input"
+        placeholder="请输入你的昵称"
+        maxlength="10"
+        value="{{registerName}}"
+        bindinput="onNameInput"
+      />
+      <picker mode="selector" range="{{levelOptions}}" value="{{registerLevelIndex}}" bindchange="onLevelPick">
+        <view class="level-picker">
+          {{registerLevelIndex >= 0 ? levelOptions[registerLevelIndex] : '选择你的空手道等级'}}
+        </view>
+      </picker>
+      <button class="primary-btn" bindtap="doRegister">注册并登录</button>
+    </view>
+
+    <view class="bottom-actions">
+      <button class="secondary-btn" bindtap="skipLogin">跳过人脸登录</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/lobby/lobby",
+    "pages/game/game",
+    "pages/leaderboard/leaderboard",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1a1a1a",
+    "navigationBarTitleText": "体感空手道",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1a1a1a",
+    "backgroundTextStyle": "light"
+  },
+
+  "permission": {
+    "scope.camera": {
+      "desc": "需要使用摄像头进行体感互动游戏"
+    },
+    "scope.record": {
+      "desc": "需要使用麦克风进行语音控制"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
